@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{blindtext}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=10mm,
+ top=10mm,
+ right=10mm,
+ bottom=10mm,
+ }
+\begin{document}
+\thispagestyle{empty}
+
+\begin{multicols*}{2}
+
+  \noindent\textbf{Harmonic Motion}
+  \begin{itemize}
+    \item $A \sin(\omega t + \phi)$
+    \item $A \exp^{i(\omega t + \phi)} = A(\cos(\omega t + \phi) + i\sin(\omega t + \phi))$
+  \end{itemize}
+
+  \noindent\textbf{Second Order Differential Equation}
+  \begin{itemize}
+  \item when $b^2 - 4ac > 0$, two different roots $r_1, r_2$, $y = C_1\exp^{r_1 x} + C_2\exp^{r_2 x}$
+  \item when $b^2 - 4ac = 0$, two equal roots $r$, $y = C_1 e^{r x} + C_2 x e^{r x}$
+  \item when $b^2 - 4ac < 0$, two equal roots $a \pm bi$, $y = e^{ax} [C_1 \cos(b x) + C_2 \sin(b x)]$
+  \end{itemize}
+
+  \noindent\textbf{EOM of M-DOF}
+  \begin{itemize}
+  \item $[M]\{\ddot{q}\} + [c]\{\dot{q}\} + [K]\{q\}=\{F\}$
+  \item For a static system, $\{\dot{q} = \ddot{q} = 0\}$, $[K]\{q\}=\{F\}$.
+  \item How to get Natural Frequency? => When external force and damping to 0:
+    $[M]\{\ddot{q}\} + [K]\{q\} = 0$, $\{q\} = \{\bar{q}\}\exp^{i\omega t}$, thus $\omega^2 = [M^{-1}][K]$.
+  \end{itemize}
+
+  \noindent\textbf{Forced Vibration}
+  \begin{itemize}
+  \item For Harmonic force $F\sin\omega t$, $m\ddot{x} + c\dot{x} + kx = F\sin\omega t$
+    \item For
+  \item EOM $x = \int_0^t F(\xi) h(t-\xi) d\xi$
+  \item Impulsive response $h(t) = \frac{1}{M\omega_n}\sin(\omega_n t)$
+
+  \end{itemize}
+
+  \noindent\textbf{Virtual Work}
+  \begin{itemize}
+  \item The virtual work of a static system is always 0.
+  \item D'Alembert's Principle
+    \begin{equation*}
+      \sum_k (F_k - m \ddot{r_k}) \delta r_k = 0
+    \end{equation*}
+  \end{itemize}
+
+  \noindent\textbf{Quantities}
+  \begin{itemize}
+  \item Torque $\tau = Fr \sin\theta$
+  \item Rotational Inertia $I=\frac{1}{2}mr^2$ (For rigid)
+  \item Rotational Torque $\tau = I\alpha$, $\alpha = \dot{\omega}$
+  \item Rotational Kinetic Energy $E_{rotational}=\frac{1}{2}I\omega^2$
+  \end{itemize}
+
+  \noindent\textbf{Lagrange Equation}
+  \begin{equation*}
+    \frac{d}{dt}\frac{dT}{d\dot{q_i}} - \frac{dT}{dq_i} + \frac{dU}{dq_i} = 0
+  \end{equation*}
+
+  \noindent\textbf{Hamilton's Priciple}\\
+  If $L = L(t, q_i, \dot{q_i})$, solution is
+  \begin{equation*}
+  \frac{d}{dt}\frac{dL}{\dot{q_i}} - \frac{dL}{dq_i} = 0
+  \end{equation*}
+
+  \noindent\textbf{Elasticity}
+  \begin{itemize}
+  \item \textbf{Stress $\sigma$} distribution of internal force within a body $\frac{F}{A}$
+  \item \textbf{Stain $\epsilon$} deformation within a body $\frac{\Delta L}{L}$
+  \item \textbf{Young's Modulus $E$} In elastic region, $\sigma = E\epsilon$
+  \item \textbf{Shear Force $\tau$} conduct by transverse force $\frac{F}{A}$
+  \end{itemize}
+
+  \noindent\textbf{Beam}
+  \begin{itemize}
+  \item Given point $(x_1, 0, 0, t)$, $u_i(x_1, x_2, x_3, t) = u_i^0(x_1,t) + u_i^2(x_1,t) + u_i^3(x_1,t)$
+  \item $u_i^0$ Transitional displacement
+  \item $u_2^1, u_3^1$ Rotational displacement
+  \item $u_3^2, u_2^3$ Torsion displacement
+  \item $u_2^2, u_3^3$ Poisson displacement
+  \item \textbf{Longitudinal} For small part $dx$ of beam, $\partial u$ is the displacement of $dx$, EOM is
+    \begin{equation*}
+      f(x) + \frac{\partial}{\partial x}(ES\frac{\partial u}{\partial x} -\rho S\frac{\partial^2 u}{\partial t^2}) = 0
+    \end{equation*}
+    BC:
+    \begin{itemize}
+    \item Free end: $N=0, \sigma=0$, $\frac{\partial u}{\partial x}\mid_{x=0 \text{ or } L} = \sigma = 0$
+    \item Fixed end: $u\mid_{x=0 \text{ or } = L} = 0$
+    \end{itemize}
+    Kinetic Energy: $T = \inf_v \frac{1}{2} \rho (\frac{\partial u}{\partial t})^2 dv$\\
+    Potential Energy: $U = \inf_v \frac{1}{2}\sigma_{ij} \epsilon_{ij} dv$
+
+  \item\textbf{Flexural}
+    \begin{itemize}
+    \item \textbf{Momentum} $EI\frac{\partial w}{\partial x}$
+    \item \textbf{Rotation} $\frac{\partial w}{\partial x}$
+    \item \textbf{Displacement} $w$
+    \item \textbf{Shear Force} $\frac{\partial M}{\partial x}$
+    \item EOM
+      \begin{equation*}
+        \frac{\partial}{\partial x^2} EI\frac{\partial^2 w}{\partial x^2} + \rho S \frac{\partial^2 w}{\partial t^2} = -f - \frac{\partial m}{\partial x}
+      \end{equation*}
+    \end{itemize}
+
+
+
+  \end{itemize}
+
+\end{multicols*}
+
+\end{document}
