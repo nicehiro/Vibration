@@ -10,6 +10,8 @@
  right=10mm,
  bottom=10mm,
  }
+\usepackage{enumitem}
+\setlist[itemize]{align=parleft,left=0pt..1em}
 \begin{document}
 \thispagestyle{empty}
 
@@ -38,8 +40,8 @@
 
   \noindent\textbf{Forced Vibration}
   \begin{itemize}
-  \item For Harmonic force $F\sin\omega t$, $m\ddot{x} + c\dot{x} + kx = F\sin\omega t$
-    \item For
+  \item For Harmonic force $F\sin\omega t$, EOM: $m\ddot{x} + c\dot{x} + kx = F\sin\omega t$, $x_t = \frac{F/k}{\sqrt{(1-r^2)^2+(2\xi r)^2}}\sin(\omega t + \phi)$, $r=\frac{\omega}{\omega_n}$
+    \item
   \item EOM $x = \int_0^t F(\xi) h(t-\xi) d\xi$
   \item Impulsive response $h(t) = \frac{1}{M\omega_n}\sin(\omega_n t)$
 
@@ -106,14 +108,39 @@
     \item \textbf{Rotation} $\frac{\partial w}{\partial x}$
     \item \textbf{Displacement} $w$
     \item \textbf{Shear Force} $\frac{\partial M}{\partial x}$
+    \item \textbf{Kinetic Energy} $T = \frac{1}{2}\int_v\rho (\frac{\partial u_i}{\partial t})^2 dv$
+    \item \textbf{Potential Energy} $U = \frac{1}{2} \int_v \sigma_{ij} \epsilon_{ij} dv = \frac{1}{2} \int_l EI(\frac{\partial^2 w}{\partial x^2})^2 dx$
     \item EOM
       \begin{equation*}
         \frac{\partial}{\partial x^2} EI\frac{\partial^2 w}{\partial x^2} + \rho S \frac{\partial^2 w}{\partial t^2} = -f - \frac{\partial m}{\partial x}
       \end{equation*}
+    \item When no force: $w = A\cos\alpha x + B\sin\alpha x + C\cosh\alpha x + D\sinh\alpha x$, $\alpha^4 = \frac{\rho S \omega^2}{EI}$
+    \item \textbf{BC}
+      \begin{itemize}
+      \item Simply-Supported $w \mid_{0 \text{ and } l} = 0$, $\frac{\partial^2 w}{\partial x^2} \mid_{0 \text{ and } l} = 0$
+      \item Clamped-Clamped $w \mid_{0 \text{ and } l} = 0$, $\frac{\partial w}{\partial x} \mid_{0 \text{ and } l} = 0$
+      \item Free-Free $\frac{\partial^2 w}{\partial x^2} \mid_{0 \text{ and } l} = 0$
+      \item Clamped-Free
+      \end{itemize}
+    \item \textbf{Rayleigh method} Since $T_{max} = U_{max}$, assume $w(x,t) = y(x) \sin\omega t$,
+      \begin{equation*}
+        \omega^2 = \int_0^l EI(\frac{d^2y}{dx^2})^2 dx / \int_0^l \rho s y^2 dx)
+      \end{equation*}
+      This method is more accurate if assumed function $y(x,t)$ \textbf{satisfy} all BCs.
+
+    \item \textbf{Ritg method}
+      \begin{enumerate}
+      \item Decompose $w(x,t) = a_0(t) + a_1(t)x + a_2(t)x^2$
+      \item Use BC to simplied $w(x,t)$
+      \item Calculate $T$ and $U$
+      \item Solve Lagrange $L = T - U$, get $\omega$ and mode shape
+      \end{enumerate}
     \end{itemize}
+  \end{itemize}
 
-
-
+  \noindent\textbf{Plate}
+  \begin{itemize}
+    \item 1
   \end{itemize}
 
 \end{multicols*}
