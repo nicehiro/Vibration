@@ -45,7 +45,6 @@
     \item
   \item EOM $x = \int_0^t F(\xi) h(t-\xi) d\xi$
   \item Impulsive response $h(t) = \frac{1}{M\omega_n}\sin(\omega_n t)$
-
   \end{itemize}
 
   \noindent\textbf{Virtual Work}
@@ -68,12 +67,6 @@
   \noindent\textbf{Lagrange Equation}
   \begin{equation*}
     \frac{d}{dt}\frac{dT}{d\dot{q_i}} - \frac{dT}{dq_i} + \frac{dU}{dq_i} = 0
-  \end{equation*}
-
-  \noindent\textbf{Hamilton's Priciple}\\
-  If $L = L(t, q_i, \dot{q_i})$, solution is
-  \begin{equation*}
-  \frac{d}{dt}\frac{dL}{\dot{q_i}} - \frac{dL}{dq_i} = 0
   \end{equation*}
 
   \noindent\textbf{Elasticity}
@@ -143,16 +136,30 @@
     \end{itemize}
   \end{itemize}
 
+  \noindent\textbf{Hamilton's Principle}
+  \begin{equation*}
+    H=\int_{t_{1}}^{t_{2}}(T-V+W_{F})\text{d}t
+    =\int_{t_{1}}^{t_{2}}\int_{0}^{L}F(u,u_{,t},u_{,x})\text{d}x\text{d}t
+  \end{equation*}
 
-  \item\textbf{Hamilton function}
-\begin{equation*}
-  H=\int_{t_{1}}^{t_{2}}(T-V+W_{F})\text{d}t
-  =\int_{t_{1}}^{t_{2}}\int_{0}^{L}F(u,u_{,t},u_{,x})\text{d}x\text{d}t
-\end{equation*}
-Eular equation
-\begin{equation*}
-  \frac{\partial F}{\partial u}-\frac{\partial}{\partial x}(\frac{\partial F}{\partial u_{,x}})-\frac{\partial}{\partial t}(\frac{\partial F}{\partial u_{,t}})=0
-\end{equation*}
+  \noindent\textbf{Eular Equation}
+  \begin{equation*}
+    \frac{\partial F}{\partial u}-\frac{\partial}{\partial x}(\frac{\partial F}{\partial u_{,x}})-\frac{\partial}{\partial t}(\frac{\partial F}{\partial u_{,t}})=0
+  \end{equation*}
+
+  \noindent\textbf{Plate}
+  \begin{itemize}
+  \item Love-Kirchoff plates assumptions:
+    \begin{enumerate}
+    \item neglect deformation along thickness direction (poison effect, $u_3^3=0$)
+    \item neglect in-plane motion $u_1^0=u_2^0=0$
+    \end{enumerate}
+  \end{itemize}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \begin{table*}
     \centering
     \caption{comparison}
@@ -163,7 +170,7 @@ Eular equation
       T&$\frac{1}{2}\int_{0}^{l}m(x)(\frac{\partial y}{\partial t})^{2}\text{d}x$
       &$\frac{1}{2}\int_{0}^{l}\rho s(\frac{\partial u}{\partial t})^{2}\text{d}x$
       &$\frac{1}{2}\int_{0}^{l}\rho s(\frac{\partial u}{\partial t})^{2}\text{d}x$
-      &$\frac{1}{2}\int_{0}^{l_{1}}\int_{0}^{l_{2}}\rho h(\frac{\partial w}{\partial t})^{2}\text{d}x_{1}\text{d}x_{2}$\\ 
+      &$\frac{1}{2}\int_{0}^{l_{1}}\int_{0}^{l_{2}}\rho h(\frac{\partial w}{\partial t})^{2}\text{d}x_{1}\text{d}x_{2}$\\
       \hline
       V&$\frac{1}{2}\int_{0}^{l}T(\frac{\partial y}{\partial x})^{2}\text{d}x$
       &$\frac{1}{2}\int_{0}^{l}Es(\frac{\partial^{2} w}{\partial x^{2}})^{2}\text{d}x$
@@ -178,7 +185,7 @@ Eular equation
       \hline
     \end{tabular}
   \end{table*}
- 
+
   \begin{table*}
     \centering
     \caption{displacement filed}
@@ -192,7 +199,7 @@ Eular equation
         $u_{3}(x_{1},x_{2},x_{3},t)=u_{3}^{0}(x_{3},0,0,t)+$\\$x_{2}u_{3}^{2}(x_{1},0,0,t)+x_{3}u_{3}^{3}(x_{1},0,0,t)$\\
         $x_{2}u_1^2, x_{3}u_1^3$ Rotation \\
         $x_{2}u_3^2, x_{3}u_2^3$ Torsion \\
-        $x_{2}u_2^2, x_{3}u_3^3$ Poisson 
+        $x_{2}u_2^2, x_{3}u_3^3$ Poisson
       }
       &\makecell[c]{
         $u_{1}(x_{1},x_{2},x_{3},t)=$\\$u_{1}^{0}(x_{1},0,0,t)$\\
@@ -218,7 +225,6 @@ Eular equation
       \hline
     \end{tabular}
   \end{table*}
-  \end{itemize}
 
 \end{multicols*}
 
