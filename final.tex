@@ -179,92 +179,47 @@ Let $L = T - U$,
     \frac{\partial F}{\partial u}-\frac{\partial}{\partial x}(\frac{\partial F}{\partial u_{,x}})-\frac{\partial}{\partial t}(\frac{\partial F}{\partial u_{,t}})=0
   \end{equation*}
 
-  \noindent\textbf{Last chapter}
+  \noindent\textbf{Last chapter}\\
   \underline{peak-peak}: the level of a vibration signal
   \underline{average}: $\frac{1}{T}\int_{0}^{T}|x|\text{d}t$, $T$ is acquisition time.
   \underline{RMS(root mean Square)}: $\sqrt{\frac{1}{T}\int_{0}^{T}x^{2}(t)\text{d}t}$,related  to the energy.
   \underline{Parameter} to measure: Low frequency $\rightarrow$ Displacement; High frequency $\rightarrow$ Acceleration.
-  \underline{Accelerometers}:
-  \underline{EOM}: $m \ddot{x} = -c(\dot{x}-\dot{y}) - k(x-y)$
-  \underline{Deformation of Spring}: $Z = \frac{1}{\omega_n^2} \frac{\omega^2Y}{\sqrt{(1-r^2)^2+(2\xi r)^2}} = A Y$
-  \underline{Seismometer}: Low natural frequency $r\rightarrow\infty$, $Z = Y$. With $\xi=0.7$, the actual application range begins from $2.5\omega_n$. (Seismic frequency begins from $2.5\omega_n$)
-  \underline{Accelerometers}: High natural frequency $r\rightarrow0$, $Z = \omega^2Y$. Application range is below $0.2\omega_n$. $\xi$ always sets to $0.7$ for a wider range and a minimum phase distortion.
-  \underline{Design of Accelerometers}: 1. The bigger the accelerometers, the higher its sensitivity, the smaller is its useful range. 2. When testing light structure, small accelerometer should be used to avoid possible interferences.
-  \underline{Amplifier} Type: The majority of preamplifiers used today are charge amplifiers as they are not affected by cable length or resistance changes within reasonable limits.
-  Excitation image of Time and Frequency.
 
-Parameter to measure: Low frequency $\rightarrow$ Displacement; High frequency $\rightarrow$ Acceleration.
-
-
-
-large displacement only occur at low frequcenies; high acceleration generally occur at high Frequency.
-
-\noindent\textbf{piezoelectric accelermoeters}
-
-EOM: $m \ddot{x} = -c(\dot{x}-\dot{y}) - k(x-y)$
+\noindent\textbf{Piezoelectric Accelermoeters}\\
+\underline{EOM} $m \ddot{x} = -c(\dot{x}-\dot{y}) - k(x-y)$
 \begin{equation*}
   m\ddot{z}+c\dot{z}+kz=m\ddot{y}
 \end{equation*}
-\begin{equation*}
-  Z=\frac{1}{\omega_{n}^{2}}\frac{\omega^{2}Y}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}
-\end{equation*}
-\textbf{Seismometer}: low natural frequency device , mearsure displacement
-$A=\frac{r^{2}}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}\rightarrow 1$
-application: begin from $2.5 \omega_{n}$
+  \underline{Deformation of Spring}: $Z = \frac{1}{\omega_n^2} \frac{\omega^2Y}{\sqrt{(1-r^2)^2+(2\xi r)^2}} = A Y$
+  \underline{Seismometer}: Low natural frequency $r\rightarrow\infty$, $Z = Y$. With $\xi=0.7$, the actual application range begins from $2.5\omega_n$. (Seismic frequency begins from $2.5\omega_n$)\\
+  $A=\frac{r^{2}}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}\rightarrow 1$\\
+  \underline{Accelerometers}: High natural frequency $r\rightarrow0$, $Z = \omega^2Y$. Application range is below $0.2\omega_n$. $\xi$ always sets to $0.7$ for a wider range and a minimum phase distortion.\\
+  $B=\frac{1}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}$\\
+\underline{practical design of Accelerometers}\\
+1.the bigger the Accelerometer, the higher its sensitivity, the smaller is its useful frequency range.\\
+2. samll accelerartion are often used to mearsure high level vibrations.\\
+3. transverse sensitivity should be less than $4\%$.\\
+4. When testing light structure, small accelerometer should be used to avoid possible interferences.\\
+\underline{calibration} back-to-back,using a calibration exciter.\\
+\underline{mounting accelerartion}: Stud and wax (restriced to $40^{o}$) is better.\\
+\underline{amplifier}:voltage amplifier(change with cable length), charge amplifier.\\
+The majority of preamplifiers used today are charge amplifiers as they are not affected by cable length or resistance changes within reasonable limits.\\
 
-\textbf{Accelerometer}
-High natural frequency, mearsure accelerartion
-$B=\frac{1}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}$
+\noindent\textbf{Excitation}\\
+\underline{Electromagnetic Shaker}\\
+  1. Harmonic excitation:at fixed frequency sweeping
+  1. Random excitation: white noise with  a flat continuous spectrum in Frequency domain
+\underline{Hammer} impact excitation
 
-\textbf{Remark}:
-$\varepsilon=0.7$ :a wider range and a minimum phase distorsion
-
-application : below $0.2\omega_{n}$
-
-\textbf{practical design of Accelerometers}
-
-1.the bigger the Accelerometer, the higher its sensitivity, the smaller is its useful frequency range.
-
-2. samll accelerartion are often used to mearsure high level vibrations.
-
-3. transverse sensitivity should be less than $4\%$.
-
-4. When testing light structure, small accelerometer should be used to avoid possible interferences.
-
-\textbf{calibration}: back-to-back,using a calibration exciter.
-
-\textbf{mounting accelerartion}: Stud and wax (restriced to $40^{o}$) is better.
-
-\textbf{amplifier}:voltage amplifier(change with cable length), charge amplifier.
-
-\textbf{excitation}
-
-1. electromagnetic shaker:
-\begin{itemize}
-  \item Harmonic excitation:at fixed frequency sweeping
-  \item Random excitation: white noise with  a flat continuous spectrum in Frequency domain
-\end{itemize}
-
-2. hammer: impact excitation
-
-\noindent\textbf{experimental modal analysis}
-
-determin the natural frequency, modal damping, mode shape.
-
-Frequency response fuction(FRF) measurement applied to lightly damp and signal-degree-of-freedom.
-
-\textbf{modal test on simple structures}:
-
-1.Use a shaker with a force transducer or a hammer to excite the structures.
-
-2.Use a random excitation or impact to excite the structure and measure the FRF curve.
-
-3.Locate the peak position in the spectrum to estimate the natural frequencies.
-
-4.use a sweeping sine excitation to measure each resonance peak..
-
-5.Use the half-power (or –3dB) method to measure damping.At resonance, measuring the displacement at different points gives the natural mode shape of the structure.
-
+\noindent\textbf{Experimental modal analysis}\\
+Determine the natural frequency, modal damping, mode shape.\\
+Frequency response fuction(FRF) measurement applied to lightly damp and signal-degree-of-freedom.\\
+\underline{modal test on simple structures}
+1.Use a shaker with a force transducer or a hammer to excite the structures.\\
+2.Use a random excitation or impact to excite the structure and measure the FRF curve.\\
+3.Locate the peak position in the spectrum to estimate the natural frequencies.\\
+4.use a sweeping sine excitation to measure each resonance peak.\\
+5.Use the half-power (or –3dB) method to measure damping.At resonance, measuring the displacement at different points gives the natural mode shape of the structure.\\
 
   \noindent\textbf{Quiz}\\
   \underline{Differences between Bernoulli and Timoshenko} Bernoulli beam ingnores shear deformation and rotation energy. Timoshenko beam need to be used while beam is short or has large soft deformation, like sandwich composite beams.\\
