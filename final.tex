@@ -23,17 +23,28 @@
   $A \sin(\omega t + \phi)$\\
   $A \exp^{i(\omega t + \phi)} = A(\cos(\omega t + \phi) + i\sin(\omega t + \phi))$\\
   critical damping $C_{c}=2\sqrt{kM}$\\
-  Damping ratio $\varsigma=\frac{c}{2m\omega_{n}}$\\
+  Damping ratio $\xi=\frac{c}{2m\omega_{n}}$\\
   Natural Frequency $\omega_{n}=\sqrt{\frac{K}{M}}$\\
-  Damped natural frequency $\omega_{d}=\sqrt{1-\varsigma^{2}}\omega_{n}$\\
-  $x=e^{-\varsigma \omega_{n}t}(\frac{\dot{x}_{0}+\varsigma \omega_{n}x_{0}}{\omega_{d}}\text{sin}\omega_{d}t+x_{0}\text{cos}\omega_{d}t)$\\
+  Damped natural frequency $\omega_{d}=\sqrt{1-\xi^{2}}\omega_{n}$\\
+  $x=e^{-\xi \omega_{n}t}(\frac{\dot{x}_{0}+\xi \omega_{n}x_{0}}{\omega_{d}}\text{sin}\omega_{d}t+x_{0}\text{cos}\omega_{d}t)$\\
   $\omega=2\pi f=2\pi N/60$, N :rpm\\
 
 \noindent\textbf{Mearsure damping}\\
-1.$\delta=\frac{1}{n}\text{ln}\frac{x_{i}}{x_{i+n}}, \varsigma =\frac{\delta}{2\pi}$\\
-2.Half-power method $G=20\text{log}A$,$20\text{log}\sqrt{2}=3\text{dB}$
+1.decay method using free respound (time domain):
+excite the structure(impact or perturbation), mearsure response,plot decay curve.
 
-Find the frequencies giving $X_{max}/\sqrt{2}$ (-3dB),$\varsigma =\frac{\Delta \omega}{2\omega}$
+\begin{equation*}
+  \delta=\frac{1}{n}\text{ln}\frac{x_{i}}{x_{i+n}}, \xi =\frac{\delta}{2\pi}
+\end{equation*}
+2.Half-power method(frequency domain): need a shaker with a force transducer to excite the structure. Use a Random excitation and mearsure the response-force transfer function. Locate the peak position in the spectrum.
+Sweep the resonance area using hamonic excitations. 
+\begin{equation*}
+  G=20\text{log}A,20\text{log}\sqrt{2}=3\text{dB}
+\end{equation*}
+
+
+
+Find the frequencies giving $X_{max}/\sqrt{2}$ (-3dB),$\xi =\frac{\Delta \omega}{2\omega}$
 
 \textbf{free vibration respounse}
 \begin{equation*}
@@ -57,10 +68,10 @@ $k_{ij}$ is the force required at $i$ for keeping the system static equlibrium w
 
 $F_{t}=\sqrt{|kx|^{2}+|C\dot{x}|^{2}}$ (amplitude with $90^{o}$ phase)
 \begin{equation*}
-  TR=\frac{\sqrt{1+(2\varsigma r)^{2}}}{\sqrt{(1-r^{2})^{2}+(2\varsigma r)^{2}}}, r=\frac{\omega}{\omega_{n}}
+  TR=\frac{\sqrt{1+(2\xi r)^{2}}}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}, r=\frac{\omega}{\omega_{n}}
 \end{equation*}
 $TR<1$ only for $r> \sqrt{2}$.$\omega_{n}=\sqrt{K/M}=\sqrt{\frac{g}{\delta}}$, $\delta$ is static deflection.
-$\varsigma=\frac{C}{C_{c}}=\frac{C}{2\sqrt{KM}}$, $\varsigma \downarrow, TR \downarrow$
+$\xi=\frac{C}{C_{c}}=\frac{C}{2\sqrt{KM}}$, $\xi \downarrow, TR \downarrow$
 
 \noindent\textbf{Second Order Differential Equation}
  when $b^2 - 4ac > 0$, two different roots $r_1, r_2$, $y = C_1\exp^{r_1 x} + C_2\exp^{r_2 x}$
@@ -79,15 +90,15 @@ $\varsigma=\frac{C}{C_{c}}=\frac{C}{2\sqrt{KM}}$, $\varsigma \downarrow, TR \dow
 
  For Harmonic force $F\sin\omega t$, $m\ddot{x} + c\dot{x} + kx = F\sin\omega t$
 \begin{equation*}
-  x(t)=\frac{F/k}{\sqrt{(1-r^{2})^{2}+(2\varsigma r)^{2}}}\text{sin}(\omega t-\phi)
+  x(t)=\frac{F/k}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}\text{sin}(\omega t-\phi)
 \end{equation*}
-$\phi=\text{arctan}(\frac{2 \varsigma \omega_{n}\omega}{\omega_{n}^{2}-\omega_{2}})$
+$\phi=\text{arctan}(\frac{2 \xi \omega_{n}\omega}{\omega_{n}^{2}-\omega_{2}})$
   
 Transient respounses  $x = \int_0^t F(\xi) h(t-\xi) d\xi$
 
 Impulsive response $x=h(t) = \frac{1}{M\omega_n}\sin(\omega_n t)$
 
-with damping $h(t)=\frac{e^{-\varsigma}\omega_{n}t}{M\omega_{n}\sqrt{1-\varsigma^{2}}}\text{sin}\omega_{n}\sqrt{1-\varsigma^{2}}t$
+with damping $h(t)=\frac{e^{-\xi}\omega_{n}t}{M\omega_{n}\sqrt{1-\xi^{2}}}\text{sin}\omega_{n}\sqrt{1-\xi^{2}}t$
   \noindent\textbf{Virtual Work}
 
  The virtual work of a static system is always 0.
@@ -110,7 +121,7 @@ $[q(t)]=[[u_{1}],[u_{2}],...][\eta(t)]$
 4. transformation of IC $[\eta(0)]=[u]^{-1}[q(0)]$
 
 \begin{equation*}
-  \frac{1}{\omega_{r}}\int_{0}^{t}N(\zeta)\text{sin}\omega_{r}(t-\zeta)d\zeta+\eta_{r}(0)\text{cos}\omega_{r}t+\dot{\eta}_{r}(0)\frac{\text{sin}\omega_{r}t}{\omega_{r}}
+\eta_{r}(t)=\frac{1}{\omega_{r}}\int_{0}^{t}N(\zeta)\text{sin}\omega_{r}(t-\zeta)d\zeta+\eta_{r}(0)\text{cos}\omega_{r}t+\dot{\eta}_{r}(0)\frac{\text{sin}\omega_{r}t}{\omega_{r}}
 \end{equation*}
 
 5. $[q(t)]=[u][\eta(t)]$
@@ -151,7 +162,7 @@ remark:$\{[M]^{-1}[K]\}[\bar{x}]=\omega^{2}[\bar{x}]$
 
   Deformation-Displacement relationship :
 
-  $\varsigma=\frac{1}{2}(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})$
+  $\xi=\frac{1}{2}(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})$
   
   \textbf{Flexural beam}
 
@@ -170,6 +181,10 @@ remark:$\{[M]^{-1}[K]\}[\bar{x}]=\omega^{2}[\bar{x}]$
         \omega^2 =\frac{U_{max}}{T_{max}}=\frac{\int_0^l EI(\frac{d^2y}{dx^2})^2 dx}{\int_0^l \rho s y^2 dx}
       \end{equation*}
       This method is more accurate if assumed function $y(x,t)$ \textbf{satisfy} all BCs. not only geometrocal BC.
+    
+      $y(x)=\sum_{i=1}^{\infty}c_{i}y_{i}(x)$,$\omega^{2}=\omega_{r}^{2}+\sum_{i=1 \neq r}(\frac{C_{i}}{c_{r}})^{2}\omega_{i}^{2}$
+
+      The accuracy depends on the assume $y(x)$.
 
   \noindent\textbf{Ritg method}
 
@@ -213,6 +228,7 @@ Eular equation
 \end{equation*}
 
 \noindent\textbf{Last chapter}
+
 peak-peak:the level of a vibration signal
 
 average: $\frac{1}{T}\int_{0}^{T}|x|\text{d}t$, $T$ is acquisition time.
@@ -221,24 +237,85 @@ RMS(root mean Square): $\sqrt{\frac{1}{T}\int_{0}^{T}x^{2}(t)\text{d}t}$,related
 
 Parameter to measure: Low frequency $\rightarrow$ Displacement; High frequency $\rightarrow$ Acceleration.
 
-Accelerometers:
-
-EOM: $m \ddot{x} = -c(\dot{x}-\dot{y}) - k(x-y)$
-
-Deformation of Spring: $Z = \frac{1}{\omega_n^2} \frac{\omega^2Y}{\sqrt{(1-r^2)^2+(2\xi r)^2}} = A Y$
-
-Seismometer: Low natural frequency $r\rightarrow\infty$, $Z = Y$. With $\xi=0.7$, the actual application range begins from $2.5\omega_n$. (Seismic frequency begins from $2.5\omega_n$)
-
-Accelerometers: High natural frequency $r\rightarrow0$, $Z = \omega^2Y$. Application range is below $0.2\omega_n$. $\xi$ always sets to $0.7$ for a wider range and a minimum phase distortion.
-
-Design of Accelerometers: 1. The bigger the accelerometers, the higher its sensitivity, the smaller is its useful range. 2. When testing light structure, small accelerometer should be used to avoid possible interferences.
-
-Amplifier Type: The majority of preamplifiers used today are charge amplifiers as they are not affected by cable length or resistance changes within reasonable limits.
-
 Excitation image of Time and Frequency.
 
 
 
+large displacement only occur at low frequcenies; high acceleration generally occur at high Frequency.
+
+\noindent\textbf{piezoelectric accelermoeters}
+
+EOM: $m \ddot{x} = -c(\dot{x}-\dot{y}) - k(x-y)$
+\begin{equation*}
+  m\ddot{z}+c\dot{z}+kz=m\ddot{y}
+\end{equation*}
+\begin{equation*}
+  Z=\frac{1}{\omega_{n}^{2}}\frac{\omega^{2}Y}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}
+\end{equation*}
+\textbf{Seismometer}: low natural frequency device , mearsure displacement 
+$A=\frac{r^{2}}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}\rightarrow 1$
+application: begin from $2.5 \omega_{n}$
+
+\textbf{Accelerometer}
+High natural frequency, mearsure accelerartion 
+$B=\frac{1}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}$
+
+\textbf{Remark}: 
+$\varepsilon=0.7$ :a wider range and a minimum phase distorsion
+
+application : below $0.2\omega_{n}$
+
+\textbf{practical design of Accelerometers}
+
+1.the bigger the Accelerometer, the higher its sensitivity, the smaller is its useful frequency range.
+
+2. samll accelerartion are often used to mearsure high level vibrations.
+
+3. transverse sensitivity should be less than $4\%$.
+
+4. When testing light structure, small accelerometer should be used to avoid possible interferences.
+
+\textbf{calibration}: back-to-back,using a calibration exciter.
+
+\textbf{mounting accelerartion}: Stud and wax (restriced to $40^{o}$) is better.
+
+\textbf{amplifier}:voltage amplifier(change with cable length), charge amplifier.
+
+\textbf{excitation}
+
+1. electromagnetic shaker:
+\begin{itemize}
+  \item Harmonic excitation:at fixed frequency sweeping
+  \item Random excitation: white noise with  a flat continuous spectrum in Frequency domain
+\end{itemize}
+
+2. hammer: impact excitation
+
+\noindent\textbf{experimental modal analysis}
+
+determin the natural frequency, modal damping, mode shape. 
+
+Frequency response fuction(FRF) measurement applied to lightly damp and signal-degree-of-freedom.
+
+\textbf{modal test on simple structures}:
+
+1.Use a shaker with a force transducer or a hammer to excite the structures.
+
+2.Use a random excitation or impact to excite the structure and measure the FRF curve.
+
+3.Locate the peak position in the spectrum to estimate the natural frequencies.
+
+4.use a sweeping sine excitation to measure each resonance peak..
+
+5.Use the half-power (or –3dB) method to measure damping.At resonance, measuring the displacement at different points gives the natural mode shape of the structure.
+
+\noindent\textbf{Q1}
+
+1.Bernoulli beam ingnores shear deformation and rotation energy. Timoshenko beam need to be used while beam is short or has large soft deformation, like sandwich composite beams.
+
+2.the natural frequency gets smaller when the effct of shear deformation and rotational inertia are consideres. Add stiffness.
+
+3.
 
 \begin{table*}
   \centering
