@@ -7,7 +7,7 @@
 \usepackage{setspace}
  \geometry{
  a4paper,
- left=2mm,
+ left=5mm,
  top=3mm,
  right=2mm,
  bottom=3mm,
@@ -19,27 +19,18 @@
 \setstretch{1.0} 
 \begin{multicols*}{3}
 
-  \noindent\textbf{Harmonic Motion}
- $A \sin(\omega t + \phi)$
+  \noindent\textbf{Harmonic Motion}\\
+  $A \sin(\omega t + \phi)$\\
+  $A \exp^{i(\omega t + \phi)} = A(\cos(\omega t + \phi) + i\sin(\omega t + \phi))$\\
+  critical damping $C_{c}=2\sqrt{kM}$\\
+  Damping ratio $\varsigma=\frac{c}{2m\omega_{n}}$\\
+  Natural Frequency $\omega_{n}=\sqrt{\frac{K}{M}}$\\
+  Damped natural frequency $\omega_{d}=\sqrt{1-\varsigma^{2}}\omega_{n}$\\
+  $x=e^{-\varsigma \omega_{n}t}(\frac{\dot{x}_{0}+\varsigma \omega_{n}x_{0}}{\omega_{d}}\text{sin}\omega_{d}t+x_{0}\text{cos}\omega_{d}t)$\\
+  $\omega=2\pi f=2\pi N/60$, N :rpm\\
 
-$A \exp^{i(\omega t + \phi)} = A(\cos(\omega t + \phi) + i\sin(\omega t + \phi))$
-
-critical damping $C_{c}=2\sqrt{kM}$
-
-Damping ratio $\varsigma=\frac{c}{2m\omega_{n}}$
-
-Natural Frequency $\omega_{n}=\sqrt{\frac{K}{M}}$
-
-Damped natural frequency $\omega_{d}=\sqrt{1-\varsigma^{2}}\omega_{n}$
-
-$x=e^{-\varsigma \omega_{n}t}(\frac{\dot{x}_{0}+\varsigma \omega_{n}x_{0}}{\omega_{d}}\text{sin}\omega_{d}t+x_{0}\text{cos}\omega_{d}t)$
-
-$\omega=2\pi f=2\pi N/60$, N :rpm
-
-\textbf{Mearsure damping}: 
-
-1.$\delta=\frac{1}{n}\text{ln}\frac{x_{i}}{x_{i+n}}, \varsigma =\frac{\delta}{2\pi}$
-
+\noindent\textbf{Mearsure damping}\\
+1.$\delta=\frac{1}{n}\text{ln}\frac{x_{i}}{x_{i+n}}, \varsigma =\frac{\delta}{2\pi}$\\
 2.Half-power method $G=20\text{log}A$,$20\text{log}\sqrt{2}=3\text{dB}$
 
 Find the frequencies giving $X_{max}/\sqrt{2}$ (-3dB),$\varsigma =\frac{\Delta \omega}{2\omega}$
@@ -200,6 +191,10 @@ Use BC to simplied $w(x,t)$
     \end{enumerate}
   \end{itemize}
 
+  \noindent\textbf{Math}
+  \begin{itemize}
+  \item $[a b c d] = [d -b -c a]$
+  \end{itemize}
 
 
 
@@ -222,7 +217,27 @@ peak-peak:the level of a vibration signal
 
 average: $\frac{1}{T}\int_{0}^{T}|x|\text{d}t$, $T$ is acquisition time.
 
-RMS(root mean Square):$\sqrt{\frac{1}{T}\int_{0}^{T}x^{2}(t)\text{d}t}$,related  to the energy.
+RMS(root mean Square): $\sqrt{\frac{1}{T}\int_{0}^{T}x^{2}(t)\text{d}t}$,related  to the energy.
+
+Parameter to measure: Low frequency $\rightarrow$ Displacement; High frequency $\rightarrow$ Acceleration.
+
+Accelerometers:
+
+EOM: $m \ddot{x} = -c(\dot{x}-\dot{y}) - k(x-y)$
+
+Deformation of Spring: $Z = \frac{1}{\omega_n^2} \frac{\omega^2Y}{\sqrt{(1-r^2)^2+(2\xi r)^2}} = A Y$
+
+Seismometer: Low natural frequency $r\rightarrow\infty$, $Z = Y$. With $\xi=0.7$, the actual application range begins from $2.5\omega_n$. (Seismic frequency begins from $2.5\omega_n$)
+
+Accelerometers: High natural frequency $r\rightarrow0$, $Z = \omega^2Y$. Application range is below $0.2\omega_n$. $\xi$ always sets to $0.7$ for a wider range and a minimum phase distortion.
+
+Design of Accelerometers: 1. The bigger the accelerometers, the higher its sensitivity, the smaller is its useful range. 2. When testing light structure, small accelerometer should be used to avoid possible interferences.
+
+Amplifier Type: The majority of preamplifiers used today are charge amplifiers as they are not affected by cable length or resistance changes within reasonable limits.
+
+Excitation image of Time and Frequency.
+
+
 
 
 \begin{table*}
