@@ -20,7 +20,7 @@
 \begin{document}
 \thispagestyle{empty}
 \setstretch{1.0} 
-\begin{multicols*}{3}
+\begin{multicols}{3}
 
   \noindent\textbf{Harmonic Motion}\\
   $A \sin(\omega t + \phi)$\\
@@ -146,9 +146,11 @@ Let $L = T - U$,
   \begin{equation*}
     \sigma=\frac{N}{s}=E\varepsilon=E\frac{\partial u}{\partial x}
   \end{equation*}
-\underline{Deformation-Displacement relationship}
-
+\underline{Deformation-Displacement relationship}\\
   $\varsigma=\frac{1}{2}(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})$\\
+
+\underline{Deformation-Displacement relationship}\\
+  $\epsilon = \frac{1}{2}(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})$\\
 
   \noindent\textbf{Flexural beam}\\
   \underline{Displacement} $w$\\
@@ -240,10 +242,36 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
 4.use a sweeping sine excitation to measure each resonance peak.\\
 5.Use the half-power (or –3dB) method to measure damping.At resonance, measuring the displacement at different points gives the natural mode shape of the structure.\\
 
- 
+  \noindent\textbf{Quiz}\\
+  \underline{Differences between Bernoulli and Timoshenko} Bernoulli beam ingnores shear deformation and rotation energy. Timoshenko beam need to be used while beam is short or has large soft deformation, like sandwich composite beams.\\
+  \underline{why heavy inertial mass for vibration?} $\omega_n=\sqrt{k/m}$ and $r=\omega/\omega_n$\\
+  \underline{Criterion for selecting isolator} $k \downarrow, c \downarrow$ \\
+  \underline{Vibration Reduction}\\
+  1. Adding an additional constraint (e.g. local support or stiffness) to the place with maximum displacement of the panel.\\
+  2. Increasing structural damping by adding a small piece of viscoelastic coating on the place with maximum deformation of the panel. \\
+  3. Add inertial mass to motor.\\
+  \underline{TODO} The natural frequency gets smaller when the effct of shear deformation and rotational inertia are consideres. Add stiffness.\\
+  \underline{Rayleigh overestimates natural frequency} \\
+  $\omega^2 = \omega_r + \sum_{i\neq r}(\frac{C_i}{C_r}\omega_i)$, the result is contributed by other modals. Thus the real natural frequency $\omega_r$ is always lower than Rayleigh result $\omega$.\\
+  \underline{Effect of shear deformation and rotational inertia} \\
+  1. Effect of rotation $<$ Effect of shear \\
+  2. $\omega_n < \omega_n(Bernoulli)$\\
 
+  \noindent\textbf{Assignment}\\
+  1. critical damping $\xi=1$, the system return to its equlibrium position within the shortest time without vibration.
+  $\xi>0$: over-Damped:no Vibration.\\
+  2. torsion $\tau=\frac{\text{d}L}{\text{d}t}=I\alpha$, $L=I\omega$.\\
+  3. critical speed is natural frequency. damping factor(coefficient) is damping ratio.\\
+  4. spring with mass: $v(x)=\frac{y}{l}\dot{x}$.
+  \begin{equation*}
+    T_{spring}=\int_{0}^{l}\frac{1}{2}\frac{M}{l}(\frac{y}{l}\dot{x})^{2}\text{d}y
+    =\frac{1}{6}M\dot{x}^{2}
+  \end{equation*}
+  5. $T_{disk}=\frac{1}{2}J\dot{\theta}^{2}$,$J=\frac{1}{2}Mr^{2}$.
+ \end{multicols}
 
   \begin{table*}[htbp]
+  % \begin{table}[H]
     \centering
     \caption{comparison}
     \begin{tabular}{|c|c|c|c|c|}
@@ -280,7 +308,7 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
         $y=\text{sin}(\frac{n \pi}{L}x)$\\
         general $y=a\text{cos}\alpha x+b\text{sin}\alpha x$\\
         $+c \text{cosh}\alpha x+d \text{sinh}\alpha x$\\
-        $\alpha^4 = \frac{\rho S \omega^2}{EI}$  
+        $\alpha^4 = \frac{\rho S \omega^2}{EI}$
       }
       &\makecell[c]{
         $w(x,y,t)=W(x,y)e^{i\omega t}$\\
@@ -293,9 +321,9 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
     \end{tabular}
   \end{table*}
 
-\end{multicols*}
 
 \begin{table*}[htbp]
+% \begin{table}[H]
     \centering
     \caption{Displacement Filed}
     \begin{tabular}{c|l}
@@ -341,45 +369,18 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
     \end{tabular}
 \end{table*}
 
-\begin{figure}[h] 
+
+\begin{figure*}[h]
   \centering
   \subfigure[forced vibration response]{
-    \includegraphics[width=0.25\textwidth]{Forced.png}
+    \includegraphics[width=0.27\textwidth]{Forced.png}
   }
  \subfigure[Isolator]{
-  \includegraphics[width=0.25\textwidth]{Isolator.png}
+  \includegraphics[width=0.27\textwidth]{Isolator.png}
  }
  \subfigure[excitation]{
-  \includegraphics[width=0.25\textwidth]{excitation.png}
+  \includegraphics[width=0.27\textwidth]{excitation.png}
  }
-  \caption{figure}
-\end{figure}
-\begin{multicols*}{2}
+\end{figure*}
 
-  \noindent\textbf{Quiz}\\
-  \underline{Differences between Bernoulli and Timoshenko} Bernoulli beam ingnores shear deformation and rotation energy. Timoshenko beam need to be used while beam is short or has large soft deformation, like sandwich composite beams.\\
-  \underline{why heavy inertial mass for vibration?} $\omega_n=\sqrt{k/m}$ and $r=\omega/\omega_n$\\
-  \underline{Criterion for selecting isolator} $k \downarrow, c \downarrow$ \\
-  \underline{Vibration Reduction}\\
-  1. Adding an additional constraint (e.g. local support or stiffness) to the place with maximum displacement of the panel.\\
-  2. Increasing structural damping by adding a small piece of viscoelastic coating on the place with maximum deformation of the panel. \\
-  \underline{TODO} The natural frequency gets smaller when the effct of shear deformation and rotational inertia are consideres. Add stiffness.\\
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-  \noindent\textbf{Assignment}
-  
-  1. critical damping $\xi=1$, the system return to its equlibrium position within the shortest time without vibration.
-  $\xi>0$: over-Damped:no Vibration.
-  
-  2. torsion $\tau=\frac{\text{d}L}{\text{d}t}=I\alpha$, $L=I\omega$.
-  
-  3. critical speed is natural frequency. damping factor(coefficient) is damping ratio.
-
-  4. spring with mass: $v(x)=\frac{y}{l}\dot{x}$.
-  \begin{equation*}
-    T_{spring}=\int_{0}^{l}\frac{1}{2}\frac{M}{l}(\frac{y}{l}\dot{x})^{2}\text{d}y
-    =\frac{1}{6}M\dot{x}^{2}
-  \end{equation*}
-
-  5. $T_{disk}=\frac{1}{2}J\dot{\theta}^{2}$,$J=\frac{1}{2}Mr^{2}$.
-  \end{multicols*}
 \end{document}
