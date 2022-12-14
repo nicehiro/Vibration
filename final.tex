@@ -5,6 +5,9 @@
 \usepackage{geometry}
 \usepackage{makecell}
 \usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float} 
+\usepackage{subfigure}
  \geometry{
  a4paper,
  left=5mm,
@@ -22,13 +25,24 @@
   \noindent\textbf{Harmonic Motion}\\
   $A \sin(\omega t + \phi)$\\
   $A \exp^{i(\omega t + \phi)} = A(\cos(\omega t + \phi) + i\sin(\omega t + \phi))$\\
+  \begin{equation*}
+    m\ddot{x}+c\dot{x}+km=0
+  \end{equation*}
+\begin{equation*}
+  \ddot{x}+\frac{c}{m}\dot{x}=\frac{k}{m}x=0
+\end{equation*}
+\begin{equation*}
+  \ddot{x}+2\xi\omega_{n}\dot{x}+\omega^{2}x=0
+\end{equation*}
+$\omega_{n}$ is the natural frequency for undamped system.
+
   \underline{critical damping} $C_{c}=2\sqrt{kM}$\\
   \underline{Damping ratio} $\xi =\frac{c}{2m\omega_{n}}$\\
   \underline{Natural Frequency} $\omega_{n}=\sqrt{\frac{K}{M}}$\\
   \underline{Damped natural frequency} $\omega_{d}=\sqrt{1-\xi^{2}}\omega_{n}$\\
   \underline{EOM of Damped System}\\
-  $x=e^{-\varsigma \omega_{n}t}(\frac{\dot{x}_{0}+\varsigma \omega_{n}x_{0}}{\omega_{d}}\text{sin}\omega_{d}t+x_{0}\text{cos}\omega_{d}t)$\\
-  $\omega=2\pi f=2\pi N/60$, N :rpm
+  $x=e^{-\varsigma \omega_{n}t} (\frac{\dot{x}_{0}+\varsigma \omega_{n}x_{0}}{\omega_{d}}\text{sin}\omega_{d}t+x_{0}\text{cos}\omega_{d}t)$\\
+  $\omega=2\pi f=2\pi N/60$, N:rpm
 
 \noindent\textbf{Mearsure damping}\\
 1.decay method using free respound (time domain):
@@ -68,7 +82,7 @@ $k_{ij}$ is the force required at $i$ for keeping the system static equlibrium w
 \end{equation*}
 $TR<1$ only for $r> \sqrt{2}$.\\
 $\omega_{n}=\sqrt{K/M}=\sqrt{\frac{g}{\delta}}$, $\delta$ is static deflection. \\
-$\xi frac{C}{C_{c}}=\frac{C}{2\sqrt{KM}}$, $\xi \downarrow, TR \downarrow$
+$\xi= \frac{C}{C_{c}}=\frac{C}{2\sqrt{KM}}$, $\xi \downarrow, TR \downarrow$
 
 \noindent\textbf{Second Order Differential Equation}\\
  When $b^2 - 4ac > 0$, two different roots $r_1, r_2$, $y = C_1\exp^{r_1 x} + C_2\exp^{r_2 x}$ \\
@@ -80,7 +94,7 @@ $\xi frac{C}{C_{c}}=\frac{C}{2\sqrt{KM}}$, $\xi \downarrow, TR \downarrow$
 \begin{equation*}
   x(t)=\frac{F/k}{\sqrt{(1-r^{2})^{2}+(2\xi r)^{2}}}\text{sin}(\omega t-\phi)
 \end{equation*}
-$\phi=\text{arctan}(\frac{2 \xi \omega_{n}\omega}{\omega_{n}^{2}-\omega_{2}})$\\
+$\phi=\text{arctan}(\frac{2 \xi \omega_{n}\omega}{\omega_{n}^{2}-\omega^{2}})=\frac{2\xi r}{1-r^{2}}$\\
 \underline{Impulsive response} $x=h(t) = \frac{1}{M\omega_n}\sin(\omega_n t)$\\
 \underline{Transient response}  $x = \int_0^t F(\xi) h(t-\xi) d\xi$\\
 \underline{Transient response with damping}\\
@@ -133,6 +147,7 @@ Let $L = T - U$,
     \sigma=\frac{N}{s}=E\varepsilon=E\frac{\partial u}{\partial x}
   \end{equation*}
 \underline{Deformation-Displacement relationship}
+
   $\varsigma=\frac{1}{2}(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})$\\
 
   \noindent\textbf{Flexural beam}\\
@@ -148,6 +163,10 @@ Let $L = T - U$,
       \end{equation*}
   This method is more accurate if assumed function $y(x,t)$ \textbf{satisfy} all BCs. not only geometrocal BC.
 
+  General, $y(x)\neq y_{s}(x)$,  $y(x)=\sum_{i=1}^{\infty}c_{i}y_{i}(x)$(modal superposition).
+  
+  Therefore, $\omega^{2}=\omega^{2}_{r}+\sum_{i=1\neq r}(\frac{c_{i}}{c_{r}})^{2}\omega_{i}^{2}$. So $\omega>\omega_{r}$.
+  
   \noindent\textbf{Ritg method}\\
   1. Decompose $w(x,t) = a_0(t) + a_1(t)x + a_2(t)x^2$\\
   2. Use BC to simplied $w(x,t)$ \\
@@ -207,8 +226,8 @@ The majority of preamplifiers used today are charge amplifiers as they are not a
 
 \noindent\textbf{Excitation}\\
 \underline{Electromagnetic Shaker}\\
-  1. Harmonic excitation:at fixed frequency sweeping
-  1. Random excitation: white noise with  a flat continuous spectrum in Frequency domain
+  1. Harmonic excitation:at fixed frequency sweeping.
+  2. Random excitation: white noise with  a flat continuous spectrum in Frequency domain
 \underline{Hammer} impact excitation
 
 \noindent\textbf{Experimental modal analysis}\\
@@ -221,17 +240,10 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
 4.use a sweeping sine excitation to measure each resonance peak.\\
 5.Use the half-power (or –3dB) method to measure damping.At resonance, measuring the displacement at different points gives the natural mode shape of the structure.\\
 
-  \noindent\textbf{Quiz}\\
-  \underline{Differences between Bernoulli and Timoshenko} Bernoulli beam ingnores shear deformation and rotation energy. Timoshenko beam need to be used while beam is short or has large soft deformation, like sandwich composite beams.\\
-  \underline{why heavy inertial mass for vibration?} $\omega_n=\sqrt{k/m}$ and $r=\omega/\omega_n$\\
-  \underline{Criterion for selecting isolator} $k \downarrow, c \downarrow$ \\
-  \underline{Vibration Reduction}\\
-  1. Adding an additional constraint (e.g. local support or stiffness) to the place with maximum displacement of the panel.\\
-  2. Increasing structural damping by adding a small piece of viscoelastic coating on the place with maximum deformation of the panel. \\
-  \underline{TODO} The natural frequency gets smaller when the effct of shear deformation and rotational inertia are consideres. Add stiffness.\\
+ 
 
 
-  \begin{table*}
+  \begin{table*}[htbp]
     \centering
     \caption{comparison}
     \begin{tabular}{|c|c|c|c|c|}
@@ -272,6 +284,7 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
       }
       &\makecell[c]{
         $w(x,y,t)=W(x,y)e^{i\omega t}$\\
+        Simply-supported plate:\\
         $\omega=\sqrt{\frac{D}{\rho h}}[(\frac{m\pi}{a})^{2}+(\frac{n \pi}{b})^{2}]$\\
       $W=A\text{sin}\frac{m\pi x}{a}\text{sin}\frac{n \pi y}{b}$\\
       \textbf{$\rho$ is volume density and $\rho h$ is area density}
@@ -282,7 +295,7 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
 
 \end{multicols*}
 
-\begin{table*}
+\begin{table*}[htbp]
     \centering
     \caption{Displacement Filed}
     \begin{tabular}{c|l}
@@ -328,4 +341,45 @@ Frequency response fuction(FRF) measurement applied to lightly damp and signal-d
     \end{tabular}
 \end{table*}
 
+\begin{figure}[h] 
+  \centering
+  \subfigure[forced vibration response]{
+    \includegraphics[width=0.25\textwidth]{Forced.png}
+  }
+ \subfigure[Isolator]{
+  \includegraphics[width=0.25\textwidth]{Isolator.png}
+ }
+ \subfigure[excitation]{
+  \includegraphics[width=0.25\textwidth]{excitation.png}
+ }
+  \caption{figure}
+\end{figure}
+\begin{multicols*}{2}
+
+  \noindent\textbf{Quiz}\\
+  \underline{Differences between Bernoulli and Timoshenko} Bernoulli beam ingnores shear deformation and rotation energy. Timoshenko beam need to be used while beam is short or has large soft deformation, like sandwich composite beams.\\
+  \underline{why heavy inertial mass for vibration?} $\omega_n=\sqrt{k/m}$ and $r=\omega/\omega_n$\\
+  \underline{Criterion for selecting isolator} $k \downarrow, c \downarrow$ \\
+  \underline{Vibration Reduction}\\
+  1. Adding an additional constraint (e.g. local support or stiffness) to the place with maximum displacement of the panel.\\
+  2. Increasing structural damping by adding a small piece of viscoelastic coating on the place with maximum deformation of the panel. \\
+  \underline{TODO} The natural frequency gets smaller when the effct of shear deformation and rotational inertia are consideres. Add stiffness.\\
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+  \noindent\textbf{Assignment}
+  
+  1. critical damping $\xi=1$, the system return to its equlibrium position within the shortest time without vibration.
+  $\xi>0$: over-Damped:no Vibration.
+  
+  2. torsion $\tau=\frac{\text{d}L}{\text{d}t}=I\alpha$, $L=I\omega$.
+  
+  3. critical speed is natural frequency. damping factor(coefficient) is damping ratio.
+
+  4. spring with mass: $v(x)=\frac{y}{l}\dot{x}$.
+  \begin{equation*}
+    T_{spring}=\int_{0}^{l}\frac{1}{2}\frac{M}{l}(\frac{y}{l}\dot{x})^{2}\text{d}y
+    =\frac{1}{6}M\dot{x}^{2}
+  \end{equation*}
+
+  5. $T_{disk}=\frac{1}{2}J\dot{\theta}^{2}$,$J=\frac{1}{2}Mr^{2}$.
+  \end{multicols*}
 \end{document}
